@@ -29,7 +29,7 @@ npm run preview
 
 ## Deployment
 
-`main` is the production branch. Every push and pull request is type-checked and built in GitHub Actions. The intended production hostname is `www.pengyue.space`; Alibaba Cloud deployment is configured separately after the OSS and edge-delivery resources are provisioned.
+`main` is the production branch. Every push and pull request is type-checked and built in GitHub Actions, and pushes to `main` deploy to GitHub Pages. The production hostname is `www.pengyue.space`.
 
 ## Privacy
 
