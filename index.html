@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f7f4" />
+    <meta
+      name="description"
+      content="Yue Peng is a Computer Science undergraduate at NYU Shanghai working across robot learning, community systems, and long-running technical projects."
+    />
+    <meta name="author" content="Yue Peng" />
+    <link rel="canonical" href="https://www.pengyue.space/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Yue Peng" />
+    <meta property="og:url" content="https://www.pengyue.space/" />
+    <meta property="og:title" content="Yue Peng" />
+    <meta
+      property="og:description"
+      content="Computer Science undergraduate at NYU Shanghai working across robot learning, community systems, and long-running technical projects."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yue Peng" />
+    <meta
+      name="twitter:description"
+      content="Computer Science undergraduate at NYU Shanghai working across robot learning, community systems, and long-running technical projects."
+    />
+    <script>
+      (() => {
+        const requested = new URLSearchParams(window.location.search).get('theme');
+        const stored = localStorage.getItem('theme');
+        const theme =
+          requested === 'light' || requested === 'dark'
+            ? requested
+            : stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
+    <title>Yue Peng</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
