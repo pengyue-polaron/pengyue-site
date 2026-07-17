@@ -87,6 +87,8 @@ const linkLabels: Record<string, string> = {
   'EaseCation Wiki': 'EaseCation Wiki',
   'Potato Spring Gala Wiki': '土豆春晚 Wiki',
   '2025 tenth-anniversary show': '2025 十周年晚会回放',
+  'Robotics Club website': '机器人社官网',
+  'NYU Shanghai DIC': '上海纽约大学 DIC',
   'Official result': '官方赛果',
   'Contemporary report': '当年报道',
   'Related research': '相关研究',
@@ -236,9 +238,9 @@ export const storyTranslations: Record<string, StoryTranslation> = {
     title: 'FIRST 机器人',
     shortTitle: 'FIRST 机器人',
     summary:
-      '从 FLL 到 FRC：参赛、担任队长、创立队伍、指导学生与赛事志愿服务。',
+      '横跨 FLL 与 FRC 的竞赛领导、队伍建设、学生指导与赛场数据工具开发。',
     introduction:
-      '我的 FIRST 经历始于 2017 年的 FIRST LEGO League，后来延续到 FRC 6386 队与 8811 队。',
+      '我的 FIRST 经历始于 2017 年的 FLL。此后，我从随 6386 队参赛，到担任队长并带队征战澳大利亚、美国和中国，再一路走到创立 8811 队、指导学生，并开发开源赛场数据工具。',
     sections: [
       {
         title: 'FIRST LEGO League',
@@ -247,25 +249,31 @@ export const storyTranslations: Record<string, StoryTranslation> = {
           'FLL 是我第一次以团队成员的身份设计并搭建竞赛机器人。',
       },
       {
-        title: 'FRC 6386 队',
-        period: '2018–2019',
+        title: '6386 队：深圳',
+        period: '2018',
         description:
-          '我曾任 6386 队队长。2019 年，队伍在悉尼赢得 South Pacific Regional，并晋级在休斯敦举行的 FIRST Championship。',
+          '我加入 6386 队并参加深圳区域赛，这是我的第一场 FRC 赛事。',
       },
       {
-        title: '钱江国际机器人公开赛',
-        period: '2019 年 8 月',
+        title: '6386 队：悉尼、休斯顿与钱江',
+        period: '2019',
         description:
-          '6386 队在钱江国际机器人公开赛中成为中国区亚军联盟队伍。',
+          '我以队长身份带领 6386 队赢得悉尼 South Pacific Regional，并晋级在休斯顿举行的 FIRST Championship。同年稍后，我们在钱江国际机器人公开赛中成为中国区亚军联盟队伍。',
       },
       {
         title: 'FRC 8811 队',
         period: '2022–2024',
         description:
-          '我在广州市第二中学创立 8811 队，筹集超过 14,000 美元经费，开展 60 余次技术培训，并继续担任青年导师。',
+          '我在广州市第二中学创立 8811 队，筹集超过 14,000 美元经费，开展 60 余次技术培训，并曾担任队伍的青年导师。2023 年，我随 8811 队参加了在上海举行的 FRC 中国区季后赛活动。',
       },
       {
-        title: '上海区域赛',
+        title: 'Yuan Scout',
+        period: '2021–2025',
+        description:
+          '我与张子睿共同开发了 Yuan Scout：一款开源微信小程序，为 FRC 队伍提供独立账户，用于收集、对比、分析与导出赛场侦察数据。项目于 2022 年发布首个版本，并于 2023 年取得中国计算机软件著作权登记。',
+      },
+      {
+        title: '上海区域赛志愿服务',
         period: '2025',
         description:
           '我在 REEFSCAPE 赛季以赛事志愿者的身份回到 FRC。',
@@ -277,75 +285,61 @@ export const storyTranslations: Record<string, StoryTranslation> = {
     category: '竞赛机器人',
     title: '上海纽约大学 RoboMaster',
     shortTitle: 'RoboMaster',
-    summary: '为上海纽约大学竞赛机器人开展电气、控制与系统工作。',
+    summary: '围绕上海纽约大学 RoboMaster 项目开展电控、视觉集成与社团领导工作。',
     introduction:
-      '我共同创立了上海纽约大学 RoboMaster 战队，现任副队长，并负责电气与控制系统。',
+      '我共同创立了上海纽约大学 RoboMaster 项目，并于 2025–2026 年担任上海纽约大学机器人社社长。我的主要技术工作是电气与嵌入式控制，同时也参与视觉集成、社团运营与媒体工作。',
     sections: [
       {
-        title: '嵌入式控制',
-        description:
-          '我负责队伍各型竞赛机器人的嵌入式控制与传感器集成。',
-      },
-      {
-        title: '系统集成',
-        description:
-          '目前的工作包括自研全向底盘，以及电气、控制与机械子系统的联合集成。',
-      },
-    ],
-  },
-  'robotics-lab-infrastructure': {
-    period: '2025–至今',
-    category: '机器人学习基础设施',
-    title: '机器人实验室基础设施',
-    shortTitle: '实验室基础设施',
-    summary:
-      '面向真实机器人实验的遥操作、同步数据采集、标定、数据集转换与部署工具。',
-    introduction:
-      '在上海纽约大学，我搭建贯穿实验配置、可复现实验运行与策略部署的机器人学习基础设施。',
-    sections: [
-      {
-        title: '上海纽约大学 DURF',
+        title: '电气与嵌入式控制',
         period: '2025–至今',
         description:
-          '作为校长本科生科研基金项目的本科研究员，我参与机器人学习与学习系统相关研究。',
+          '我的核心工作是竞赛机器人的控制栈，包括 STM32 与 FreeRTOS 固件、底盘、云台和发射机构控制、CAN 电机通信、传感器集成，以及遥控器和裁判系统接口。我也参与机器人参数配置、功率控制、视觉遥测，以及构建、烧录和 RTT Dashboard 等现场调试工具的开发。',
       },
       {
-        title: 'Galaxea A1 Research Runtime',
-        period: '2026',
+        title: '视觉与导航',
         description:
-          '一套端到端运行环境，支持 Galaxea A1 遥操作、同步多模态采集、LeRobot 数据集转换与策略部署。',
+          '我也参与将视觉数据接入控制闭环，包括通信、目标跟踪与云台控制；在队伍更广泛的自主机器人工作中，我还学习并探索了感知与导航相关知识。',
       },
       {
-        title: 'Quest Trajectory Recorder',
+        title: '江阴比赛',
         period: '2026',
         description:
-          '一套与仿真器解耦的工具，用于 LIBERO、Isaac Sim 等后端中的控制器标定、轨迹记录、实时可视化与遥操作。',
+          '在江阴举行的 RoboMaster 高校联盟赛中，我主要负责步兵机器人。队伍最终获得二等奖。',
+      },
+      {
+        title: '机器人社社长',
+        period: '2025–2026',
+        description:
+          '在技术工作之外，我担任上海纽约大学机器人社社长，协调社团与队伍运营，并负责招新、对外展示和媒体等工作。',
       },
     ],
   },
   'kiwi-codeshin': {
-    period: '2025',
+    period: '2025–2026',
     category: '学习系统',
     title: 'Kiwi 与 CodeShin',
     shortTitle: 'Kiwi 与 CodeShin',
-    summary: '在上海纽约大学开发的 AI 辅助编程练习流程。',
+    summary: '从 DIC 的早期原型，逐步走向服务上海纽约大学课程的 AI 辅助教学平台。',
     introduction:
-      '在上海纽约大学，我为 Kiwi 开发了 AI 辅助编程练习模块，并将 CodeShin 构建为完整的全栈练习环境。',
+      'CodeShin 最初是我为上海纽约大学 2025 年 Digital Innovation Challenge 制作的原型。这个 Demo 随后成为相关功能整合进 Kiwi 的起点；从 2025 年暑假开始，我继续参与 Kiwi 的开发，一直做到 2026 年 1 月。',
     sections: [
       {
-        title: '练习环境',
+        title: 'DIC 中的 CodeShin',
+        period: '2025 年春季',
         description:
-          'CodeShin 将交互式编辑器、解答分析与面向编程练习的 AI 引导结合在一起。',
+          '2025 年第四届 DIC 以“AI 赋能个性化教育”为主题。我在活动中先完成了 CodeShin Demo：一个开源的交互式编程练习原型，由 React、Monaco Editor 与 Django 构建，将编程题、解答分析和 AI 助手引导放进同一套体验。',
       },
       {
-        title: '个性化学习',
+        title: '从原型到 Kiwi',
+        period: '2025 年暑假',
         description:
-          '系统根据学习者的进度与历史作业推荐练习，并动态调整学习路径。',
+          'DIC 结束后，我们没有把 CodeShin 当作一个彼此独立的成品继续发展，而是将其中关于编程练习与 AI 辅助学习的思路整合进 Kiwi，让早期 Demo 进入一套真正连接学生、教师与课程流程的平台。',
       },
       {
-        title: '上海纽约大学部署',
+        title: '继续建设 Kiwi',
+        period: '2025 年暑假–2026 年 1 月',
         description:
-          '该模块被集成进 Kiwi，之后用于上海纽约大学的计算机科学课程。',
+          '此后，我继续参与 Kiwi 的 NestJS 后端与 React 前端开发，完成面向特定学生的练习分配、AI 辅助评测、学生反馈收集、教师面板与数据导出等流程。Kiwi 将课程资料、讲座与习题课、AI 对话、练习和评测整合在一起，并服务于上海纽约大学 Introduction to Computer Programming 课程。',
       },
     ],
   },
@@ -385,12 +379,26 @@ export function storyText(story: Story, language: Language): Story {
   const translation = storyTranslations[story.slug];
   if (!translation) return story;
 
+  const localizeImage = (image: NonNullable<Story['heroImages']>[number]) => ({
+    ...image,
+    alt: image.altZh || image.alt,
+    caption: image.captionZh || image.caption,
+  });
+
   return {
     ...story,
     ...translation,
-    sections: story.sections.map((section, index) => ({
-      ...section,
-      ...(translation.sections[index] || {}),
-    })),
+    coverImage: story.coverImage ? localizeImage(story.coverImage) : undefined,
+    heroImages: story.heroImages?.map(localizeImage),
+    sections: story.sections.map((section, index) => {
+      const localizedSection = {
+        ...section,
+        ...(translation.sections[index] || {}),
+      };
+      return {
+        ...localizedSection,
+        images: localizedSection.images?.map(localizeImage),
+      };
+    }),
   };
 }

@@ -35,9 +35,11 @@ export type StorySection = {
 export type StoryImage = {
   src: string;
   alt: string;
+  altZh?: string;
   width: number;
   height: number;
   caption?: string;
+  captionZh?: string;
   href?: string;
 };
 
@@ -51,7 +53,9 @@ export type Story = {
   introduction: string;
   sections: StorySection[];
   links?: Link[];
+  coverImage?: StoryImage;
   heroImages?: StoryImage[];
+  coverPosition?: string;
 };
 
 export const profile = {
@@ -353,9 +357,32 @@ export const stories: Story[] = [
     title: 'FIRST Robotics',
     shortTitle: 'FIRST Robotics',
     summary:
-      'FLL and FRC teams: competing, captaining, founding, mentoring, and volunteering.',
+      'Competition leadership, team building, mentorship, and scouting software across FLL and FRC.',
     introduction:
-      'My FIRST experience began with FIRST LEGO League in 2017 and continued through FRC Teams 6386 and 8811.',
+      'My FIRST journey began with FLL in 2017, then grew from competing with Team 6386 and later captaining the team across Australia, the United States, and China to founding Team 8811, mentoring students, and building open-source tools for competition scouting.',
+    heroImages: [
+      {
+        src: '/media/stories/first-robotics/team-6386-robot.webp',
+        alt: 'Team 6386’s robot on the competition field in 2019.',
+        altZh: '6386 队机器人在 2019 年赛场上。',
+        width: 1400,
+        height: 934,
+      },
+      {
+        src: '/media/stories/first-robotics/team-6386-field.webp',
+        alt: 'Team 6386 working beside the competition field in 2019.',
+        altZh: '6386 队成员在 2019 年赛场边工作。',
+        width: 1400,
+        height: 934,
+      },
+      {
+        src: '/media/stories/first-robotics/team-8811.webp',
+        alt: 'The founding members and mentors of FRC Team 8811.',
+        altZh: 'FRC 8811 队创队成员与导师合影。',
+        width: 1400,
+        height: 787,
+      },
+    ],
     sections: [
       {
         title: 'FIRST LEGO League',
@@ -364,35 +391,119 @@ export const stories: Story[] = [
           'FLL was my first experience building a competition robot as part of a team.',
       },
       {
-        title: 'FRC Team 6386',
-        period: '2018–2019',
+        title: 'Team 6386: Shenzhen',
+        period: '2018',
         description:
-          'I served as captain of Team 6386. In 2019, we won the South Pacific Regional in Sydney and qualified for the FIRST Championship in Houston.',
+          'I joined Team 6386 and competed at the Shenzhen Regional, my first FRC event.',
+        images: [
+          {
+            src: '/media/stories/first-robotics/team-6386-shenzhen.webp',
+            alt: 'Team 6386 at the 2018 Shenzhen Regional.',
+            altZh: '6386 队在 2018 年深圳区域赛合影。',
+            width: 1080,
+            height: 635,
+            caption: 'Team 6386 at the Shenzhen Regional.',
+            captionZh: '6386 队参加深圳区域赛。',
+          },
+        ],
+      },
+      {
+        title: 'Team 6386: Sydney, Houston, and Qianjiang',
+        period: '2019',
+        description:
+          'As captain, I led Team 6386 to win the South Pacific Regional in Sydney and qualify for the FIRST Championship in Houston. Later that year, we joined the China Division Finalist Alliance at the Qianjiang International Robotics Open.',
         links: [
           {
             label: 'Official result',
-            href: 'https://frc-events.firstinspires.org/team/6386',
+            href: 'https://frc-events.firstinspires.org/2019/AUSP',
           },
           {
             label: 'Contemporary report',
             href: 'https://ycpai.ycwb.com/ycppad/content/2019-04/03/content_367146.html',
           },
         ],
-      },
-      {
-        title: 'Qianjiang International Robotics Open',
-        period: 'August 2019',
-        description:
-          'Team 6386 was part of the China Division Finalist Alliance at the Qianjiang International Robotics Open.',
+        images: [
+          {
+            src: '/media/stories/first-robotics/team-6386-sydney.webp',
+            alt: 'Team 6386 after winning the 2019 South Pacific Regional in Sydney.',
+            altZh: '6386 队在悉尼赢得 2019 South Pacific Regional 后合影。',
+            width: 1080,
+            height: 810,
+            caption: 'South Pacific Regional, Sydney.',
+            captionZh: '悉尼 South Pacific Regional。',
+          },
+          {
+            src: '/media/stories/first-robotics/team-6386-houston.webp',
+            alt: 'Team 6386 at the 2019 FIRST Championship in Houston.',
+            altZh: '6386 队参加 2019 年休斯顿 FIRST Championship。',
+            width: 1080,
+            height: 510,
+            caption: 'FIRST Championship, Houston.',
+            captionZh: '休斯顿 FIRST Championship。',
+          },
+          {
+            src: '/media/stories/first-robotics/team-6386-qianjiang.webp',
+            alt: 'Team 6386 at the 2019 Qianjiang International Robotics Open.',
+            altZh: '6386 队参加 2019 年钱江国际机器人公开赛。',
+            width: 1080,
+            height: 739,
+            caption: 'Qianjiang International Robotics Open.',
+            captionZh: '钱江国际机器人公开赛。',
+          },
+        ],
       },
       {
         title: 'FRC Team 8811',
         period: '2022–2024',
         description:
-          'I founded Team 8811 at Guangzhou No. 2 High School, raised more than US$14,000, delivered more than 60 technical training sessions, and continued as a youth mentor.',
+          'I founded Team 8811 at Guangzhou No. 2 High School, raised more than US$14,000, delivered more than 60 technical training sessions, and served as the team’s youth mentor. In 2023, I competed with Team 8811 at an FRC China postseason event in Shanghai.',
+        images: [
+          {
+            src: '/media/stories/first-robotics/team-8811-training.webp',
+            alt: 'FRC Team 8811 members during a winter training session.',
+            altZh: 'FRC 8811 队成员在寒假集训期间合影。',
+            width: 1400,
+            height: 796,
+            caption: 'Team 8811 winter training.',
+            captionZh: '8811 队寒假集训。',
+          },
+          {
+            src: '/media/stories/first-robotics/team-8811-shanghai.webp',
+            alt: 'Team 8811 at a 2023 FRC China postseason event in Shanghai.',
+            altZh: '8811 队参加 2023 年在上海举行的 FRC 中国区季后赛活动。',
+            width: 1080,
+            height: 720,
+            caption: 'Team 8811 in Shanghai, 2023.',
+            captionZh: '8811 队于 2023 年在上海参赛。',
+          },
+        ],
       },
       {
-        title: 'Shanghai Regional',
+        title: 'Yuan Scout',
+        period: '2021–2025',
+        description:
+          'I co-developed Yuan Scout with Zirui Zhang: an open-source WeChat mini program that gave FRC teams separate accounts to collect, compare, analyze, and export match scouting data. The first version launched in 2022, and the project received a Chinese software copyright registration in 2023.',
+        links: [
+          {
+            label: 'GitHub',
+            href: 'https://github.com/frc8811/Yuan-Scout',
+          },
+        ],
+        images: [
+          {
+            src: '/media/stories/first-robotics/yuan-scout.webp',
+            alt: 'A collection of mobile interfaces from the Yuan Scout FRC scouting mini program.',
+            altZh: 'Yuan Scout FRC 赛场数据收集小程序的多个移动端界面。',
+            width: 1400,
+            height: 604,
+            caption: 'Yuan Scout interface.',
+            captionZh: 'Yuan Scout 界面。',
+            href: 'https://github.com/frc8811/Yuan-Scout',
+          },
+        ],
+      },
+      {
+        title: 'Shanghai Regional volunteering',
         period: '2025',
         description:
           'I returned to FRC as a competition volunteer for the REEFSCAPE season.',
@@ -406,97 +517,132 @@ export const stories: Story[] = [
     title: 'NYU Shanghai RoboMaster',
     shortTitle: 'RoboMaster',
     summary:
-      'Electrical, control, and systems work for NYU Shanghai’s competition robots.',
+      'Electrical control, vision integration, and club leadership for NYU Shanghai’s RoboMaster program.',
     introduction:
-      'I co-founded the NYU Shanghai RoboMaster Team and serve as vice captain and electrical and control systems lead.',
-    sections: [
+      'I co-founded NYU Shanghai’s RoboMaster program and served as president of the NYU Shanghai Robotics Club for 2025–2026. My main technical responsibility is electrical and embedded control, alongside work in vision integration, club operations, and media.',
+    coverPosition: 'center 85%',
+    heroImages: [
       {
-        title: 'Embedded control',
-        description:
-          'I lead embedded control and sensor integration across the team’s competition robots.',
+        src: '/media/stories/robomaster/competition-robots.webp',
+        alt: 'NYU Shanghai RoboMaster robots at a competition venue.',
+        altZh: '上海纽约大学 RoboMaster 机器人在赛事场地内。',
+        width: 1200,
+        height: 1600,
       },
       {
-        title: 'System integration',
-        description:
-          'Current work includes custom omnidirectional chassis and the integration of electrical, control, and mechanical subsystems.',
+        src: '/media/stories/robomaster/team-2025.webp',
+        alt: 'NYU Shanghai Robotics Club members with their RoboMaster robots.',
+        altZh: '上海纽约大学机器人社成员与 RoboMaster 机器人合影。',
+        width: 1400,
+        height: 1050,
+      },
+      {
+        src: '/media/stories/robomaster/pit-repair.webp',
+        alt: 'Team members troubleshooting a RoboMaster robot in the pit.',
+        altZh: '队员们在备场区检修 RoboMaster 机器人。',
+        width: 1400,
+        height: 933,
       },
     ],
-  },
-  {
-    slug: 'robotics-lab-infrastructure',
-    period: '2025–present',
-    category: 'Robot learning infrastructure',
-    title: 'Robotics Lab Infrastructure',
-    shortTitle: 'Lab Infrastructure',
-    summary:
-      'Teleoperation, synchronized data capture, calibration, dataset conversion, and deployment tooling for real-robot experiments.',
-    introduction:
-      'At NYU Shanghai, I build the infrastructure that moves robot-learning experiments from setup to reproducible runs and deployment.',
     sections: [
       {
-        title: 'NYU Shanghai DURF',
+        title: 'Electrical and embedded control',
         period: '2025–present',
         description:
-          'Undergraduate researcher in the Dean’s Undergraduate Research Fund, working across robot learning and learning systems.',
-      },
-      {
-        title: 'Galaxea A1 Research Runtime',
-        period: '2026',
-        description:
-          'An end-to-end runtime for Galaxea A1 teleoperation, synchronized multimodal capture, LeRobot dataset conversion, and policy deployment.',
-        links: [
+          'My core work is the control stack for our competition robots: STM32 and FreeRTOS firmware, chassis, gimbal, and shooter control, CAN motor communication, sensor integration, remote control, and referee-system interfaces. I also work across robot-specific configuration, power control, vision telemetry, and the build, flashing, and RTT dashboard tools that make field debugging faster.',
+        images: [
           {
-            label: 'GitHub',
-            href: 'https://github.com/pengyue-polaron/galaxea-a1-runtime',
+            src: '/media/stories/robomaster/overnight-debugging.webp',
+            alt: 'The team debugging multiple RoboMaster robots late at night.',
+            altZh: '队伍在深夜同时调试多台 RoboMaster 机器人。',
+            width: 1400,
+            height: 1050,
+            caption: 'A late-night robot debugging session.',
+            captionZh: '一次深夜机器人调试。',
           },
         ],
       },
       {
-        title: 'Quest Trajectory Recorder',
+        title: 'Vision and navigation',
+        description:
+          'I also integrate vision data into the control loop, including communication, target tracking, and gimbal commands. Through the team’s broader autonomy work, I have also explored perception and navigation concepts beyond my primary electrical-control role.',
+      },
+      {
+        title: 'Jiangyin competition',
         period: '2026',
         description:
-          'A simulator-neutral toolkit for controller calibration, trajectory recording, live visualization, and teleoperation across LIBERO, Isaac Sim, and other backends.',
+          'At a RoboMaster university alliance event in Jiangyin, I was primarily responsible for our infantry robot. The team received second prize.',
+      },
+      {
+        title: 'Robotics Club president',
+        period: '2025–2026',
+        description:
+          'Alongside engineering, I served as president of the NYU Shanghai Robotics Club, coordinating team operations while contributing to recruitment, outreach, and media work.',
         links: [
           {
-            label: 'GitHub',
-            href: 'https://github.com/pengyue-polaron/quest-trajectory-recorder',
+            label: 'Robotics Club website',
+            href: 'https://www.nyushrobotics.club/',
           },
         ],
       },
     ],
-    links: [{ label: 'Related research', href: '/research' }],
   },
   {
     slug: 'kiwi-codeshin',
-    period: '2025',
+    period: '2025–2026',
     category: 'Learning systems',
     title: 'Kiwi & CodeShin',
     shortTitle: 'Kiwi & CodeShin',
     summary:
-      'An AI-assisted coding-practice workflow developed at NYU Shanghai.',
+      'From a Digital Innovation Challenge prototype to an AI-supported course platform at NYU Shanghai.',
     introduction:
-      'At NYU Shanghai, I developed an AI-assisted coding-practice module for Kiwi and built CodeShin as its full-stack practice environment.',
+      'CodeShin began as a prototype for NYU Shanghai’s 2025 Digital Innovation Challenge. That first demo later became the starting point for features integrated into Kiwi, where I continued developing the course platform from summer 2025 into January 2026.',
+    coverImage: {
+      src: '/media/stories/kiwi-codeshin/kiwi-interface.webp',
+      alt: 'Kiwi course interface showing lecture materials alongside an AI-assisted explanation.',
+      altZh: 'Kiwi 课程界面，同时展示课程资料与 AI 辅助讲解。',
+      width: 1400,
+      height: 933,
+    },
+    heroImages: [
+      {
+        src: '/media/stories/kiwi-codeshin/kiwi-demo.webp',
+        alt: 'Presenting Kiwi’s lecture materials and AI chat workflow at NYU Shanghai.',
+        altZh: '在上海纽约大学展示 Kiwi 的课程资料与 AI 对话流程。',
+        width: 1400,
+        height: 1050,
+        caption: 'Presenting Kiwi’s lecture and AI chat experience.',
+        captionZh: '展示 Kiwi 的课程资料与 AI 对话体验。',
+      },
+    ],
     sections: [
       {
-        title: 'Practice environment',
+        title: 'CodeShin at DIC',
+        period: 'Spring 2025',
         description:
-          'CodeShin combines an interactive editor with solution analysis and AI guidance for coding exercises.',
-      },
-      {
-        title: 'Personalized learning',
-        description:
-          'The system recommends exercises and adapts practice paths using a learner’s progress and prior work.',
-      },
-      {
-        title: 'NYU Shanghai deployment',
-        description:
-          'The module was integrated into Kiwi and later used in NYU Shanghai computer science courses.',
+          'For NYU Shanghai’s fourth Digital Innovation Challenge—whose theme was AI-powered personalized education—I built CodeShin as an early demo for interactive programming practice. The open-source prototype combined coding problems, solution analysis, and an AI assistant in a React and Monaco Editor frontend with a Django backend.',
         links: [
+          {
+            label: 'NYU Shanghai DIC',
+            href: 'https://datascience.shanghai.nyu.edu/news/empowering-education-ai-nyu-shanghais-digital-innovation-challenge-concludes-successfully',
+          },
           {
             label: 'GitHub',
             href: 'https://github.com/pengyue-polaron/CodeShin',
           },
         ],
+      },
+      {
+        title: 'From prototype to Kiwi',
+        period: 'Summer 2025',
+        description:
+          'After DIC, we carried the prototype’s exercise and AI-assisted learning ideas into Kiwi rather than treating CodeShin as a separate finished product. This connected the demo to a real course platform with students, instructors, and an existing teaching workflow.',
+      },
+      {
+        title: 'Building Kiwi',
+        period: 'Summer 2025 – January 2026',
+        description:
+          'I then worked across Kiwi’s NestJS backend and React frontend, developing targeted exercise assignment, AI-assisted evaluation, student feedback collection, instructor dashboards, and data-export workflows. Kiwi brings course materials, lectures and recitations, AI chat, exercises, and evaluation into one system used for Introduction to Computer Programming at NYU Shanghai.',
       },
     ],
   },

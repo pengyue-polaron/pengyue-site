@@ -244,7 +244,7 @@ function HomePage() {
               我喜欢一群人围着机器人争论、调试，在一次次失败之后，看它终于按照想象中的方式动起来；也喜欢守着一个虚拟世界，看原本陌生的人在其中相遇，慢慢拥有共同的故事。后来我才意识到，我在意的或许从来不只是机器与代码，而是人们因为相信同一件事聚在一起，再把原本不存在的东西，一点一点做出来。
             </p>
             <p>
-              现在，我做些<Link to="/research">研究</Link>，<Link to="/stories/robotics-lab-infrastructure">写些代码</Link>，也常常被那些尚无答案的问题吸引。我喜欢把偶然冒出的念头认真对待，直到它从一个不太确定的想法，变成真正能够运行的东西。比起沿着已经画好的路线前进，我更愿意顺着好奇心多走几步，也去看看山的那边，究竟还有什么。
+              现在，我做些<Link to="/research">研究</Link>，<a href="https://github.com/pengyue-polaron">写些代码</a>，也常常被那些尚无答案的问题吸引。我喜欢把偶然冒出的念头认真对待，直到它从一个不太确定的想法，变成真正能够运行的东西。比起沿着已经画好的路线前进，我更愿意顺着好奇心多走几步，也去看看山的那边，究竟还有什么。
             </p>
             <p>
               希望很多年以后回头看，那些走过的远路、做过的梦、守过的世界，以及和一群人共同熬过的夜，都算数。
@@ -292,7 +292,7 @@ function HomePage() {
           <p>
             These days, I spend much of my time doing{' '}
             <Link to="/research">research</Link>,{' '}
-            <Link to="/stories/robotics-lab-infrastructure">writing code</Link>,
+            <a href="https://github.com/pengyue-polaron">writing code</a>,
             and following questions that do not yet have answers. Rather than
             staying entirely on paths already mapped out, I prefer to let
             curiosity lead me a little farther—to turn passing ideas into
@@ -435,28 +435,42 @@ function StoriesPage() {
       <section className="story-gallery" aria-label={copy.selectedStories}>
         {stories.map((sourceStory, index) => {
           const story = storyText(sourceStory, language);
+          const coverImage = story.coverImage ?? story.heroImages?.[0];
           return (
-          <Link
-            className="story-gallery-entry"
-            key={story.slug}
-            to={`/stories/${story.slug}`}
-          >
-            <div className="story-image-placeholder" aria-hidden="true">
-              <span className="placeholder-number">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <span className="placeholder-label">{copy.imageForthcoming}</span>
-            </div>
-            <div className="story-gallery-heading">
-              <h2>{story.shortTitle}</h2>
-              <span className="story-arrow" aria-hidden="true">
-                <ArrowRight size={18} weight="regular" />
-              </span>
-            </div>
-            <p className="story-gallery-meta">
-              {story.category} · {story.period}
-            </p>
-          </Link>
+            <Link
+              className="story-gallery-entry"
+              key={story.slug}
+              to={`/stories/${story.slug}`}
+            >
+              {coverImage ? (
+                <div className="story-gallery-image">
+                  <img
+                    src={coverImage.src}
+                    alt=""
+                    width={coverImage.width}
+                    height={coverImage.height}
+                    loading="lazy"
+                    style={{ objectPosition: story.coverPosition }}
+                  />
+                </div>
+              ) : (
+                <div className="story-image-placeholder" aria-hidden="true">
+                  <span className="placeholder-number">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <span className="placeholder-label">{copy.imageForthcoming}</span>
+                </div>
+              )}
+              <div className="story-gallery-heading">
+                <h2>{story.shortTitle}</h2>
+                <span className="story-arrow" aria-hidden="true">
+                  <ArrowRight size={18} weight="regular" />
+                </span>
+              </div>
+              <p className="story-gallery-meta">
+                {story.category} · {story.period}
+              </p>
+            </Link>
           );
         })}
       </section>
@@ -521,7 +535,9 @@ function StoryPage() {
       </header>
 
       {story.heroImages && (
-        <div className="story-hero-media">
+        <div
+          className={`story-hero-media${story.heroImages.length === 1 ? ' single' : ''}`}
+        >
           {story.heroImages.map((image) => (
             <StoryFigure image={image} key={image.src} />
           ))}
