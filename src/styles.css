@@ -535,7 +535,7 @@ dd {
 }
 
 .publication-group {
-  margin-top: 46px;
+  margin-top: 0;
 }
 
 .publications-section {
@@ -723,6 +723,65 @@ dd {
   line-height: 1.8;
 }
 
+.story-hero-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  aspect-ratio: 16 / 8.5;
+  margin-top: 38px;
+}
+
+.story-hero-media figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+.story-hero-media figure:first-child {
+  grid-row: 1 / 3;
+}
+
+.story-hero-media a,
+.story-section-media a {
+  display: block;
+}
+
+.story-hero-media a {
+  height: 100%;
+}
+
+.story-hero-media img,
+.story-section-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  transition: border-color 160ms ease;
+}
+
+.story-hero-media img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-hero-media a:hover img,
+.story-section-media a:hover img {
+  border-color: var(--accent-line);
+}
+
+.story-hero-media figcaption,
+.story-section-media figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.story-hero-media + .story-sections {
+  margin-top: 48px;
+}
+
 .story-sections {
   margin-top: 62px;
   border-top: 1px solid var(--accent-line);
@@ -754,6 +813,52 @@ dd {
   color: var(--text-soft);
   font-size: 15.5px;
   line-height: 1.75;
+}
+
+.story-project-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.story-project {
+  padding: 15px 17px;
+  border-left: 2px solid var(--accent-line);
+  background: color-mix(in srgb, var(--text) 2.5%, var(--bg));
+}
+
+.story-project h3 {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.story-project p {
+  margin-top: 6px;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.story-section-media {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.story-section-media figure {
+  margin: 0;
+}
+
+.story-section-media figure:only-child {
+  grid-column: 1 / -1;
+}
+
+.story-section-media img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .story-section .entry-links {
@@ -923,6 +1028,26 @@ dd {
   .story-section {
     grid-template-columns: 1fr;
     gap: 11px;
+  }
+
+  .story-section-media {
+    grid-template-columns: 1fr;
+  }
+
+  .story-hero-media {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
+    aspect-ratio: auto;
+  }
+
+  .story-hero-media figure:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .story-hero-media img {
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 }
 

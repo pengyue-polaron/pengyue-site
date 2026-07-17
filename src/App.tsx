@@ -25,6 +25,7 @@ import {
   stories,
   type Publication,
   type Story,
+  type StoryImage,
 } from './data/site';
 import {
   localizedLinkLabel,
@@ -162,8 +163,8 @@ function Header({
   const copy = ui[language];
   const navItems = [
     { label: copy.about, href: '/' },
-    { label: copy.research, href: '/research' },
     { label: copy.stories, href: '/stories' },
+    { label: copy.research, href: '/research' },
   ];
 
   return (
@@ -212,12 +213,12 @@ function PageHeading({
   description,
 }: {
   title: string;
-  description: string;
+  description?: string;
 }) {
   return (
     <header className="page-heading">
       <h1>{title}</h1>
-      <p className="page-description">{description}</p>
+      {description && <p className="page-description">{description}</p>}
     </header>
   );
 }
@@ -347,12 +348,8 @@ function PublicationsSection() {
     <section
       className="content-section publications-section"
       id="publications"
-      aria-labelledby="publications-heading"
+      aria-label={copy.publications}
     >
-      <h2 className="section-label" id="publications-heading">
-        {copy.publications}
-      </h2>
-
       {groups.map((group) => (
         <section className="publication-group" key={group}>
           <h3 className="publication-group-title">
@@ -376,7 +373,9 @@ function PublicationsSection() {
                     <p className="entry-meta">{publication.status}</p>
                     <h4>{publication.title}</h4>
                     <AuthorList publication={publication} />
-                    <p className="venue">{publication.venue}</p>
+                    {publication.venue && (
+                      <p className="venue">{publication.venue}</p>
+                    )}
                     <p>{publication.summary}</p>
                     {publication.image && publication.imageAlt && (
                       <figure className="publication-figure">
@@ -416,10 +415,7 @@ function ResearchPage() {
   const copy = ui[language];
   return (
     <div className="page research-page">
-      <PageHeading
-        title={copy.research}
-        description={copy.researchDescription}
-      />
+      <PageHeading title={copy.research} />
       <PublicationsSection />
     </div>
   );
@@ -468,6 +464,37 @@ function StoriesPage() {
   );
 }
 
+function StoryFigure({
+  image,
+  className,
+}: {
+  image: StoryImage;
+  className?: string;
+}) {
+  const visual = (
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      loading="lazy"
+    />
+  );
+
+  return (
+    <figure className={className}>
+      {image.href ? (
+        <a href={image.href} target="_blank" rel="noopener noreferrer">
+          {visual}
+        </a>
+      ) : (
+        visual
+      )}
+      {image.caption && <figcaption>{image.caption}</figcaption>}
+    </figure>
+  );
+}
+
 function StoryPage() {
   const language = useLanguage();
   const copy = ui[language];
@@ -493,6 +520,14 @@ function StoryPage() {
         <EntryLinks links={story.links} />
       </header>
 
+      {story.heroImages && (
+        <div className="story-hero-media">
+          {story.heroImages.map((image) => (
+            <StoryFigure image={image} key={image.src} />
+          ))}
+        </div>
+      )}
+
       <section className="story-sections" aria-label={`${story.title} details`}>
         {story.sections.map((section) => (
           <section className="story-section" key={section.title}>
@@ -502,7 +537,24 @@ function StoryPage() {
             </div>
             <div>
               <p>{section.description}</p>
+              {section.items && (
+                <div className="story-project-list">
+                  {section.items.map((item) => (
+                    <article className="story-project" key={item.title}>
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </article>
+                  ))}
+                </div>
+              )}
               <EntryLinks links={section.links} />
+              {section.images && (
+                <div className="story-section-media">
+                  {section.images.map((image) => (
+                    <StoryFigure image={image} key={image.src} />
+                  ))}
+                </div>
+              )}
             </div>
           </section>
         ))}

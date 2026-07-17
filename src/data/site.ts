@@ -10,7 +10,7 @@ export type Publication = {
   date: string;
   type: 'Published and accepted' | 'Preprints and manuscripts';
   status: string;
-  venue: string;
+  venue?: string;
   summary: string;
   links: Link[];
   equalContribution?: string[];
@@ -25,6 +25,20 @@ export type StorySection = {
   period?: string;
   description: string;
   links?: Link[];
+  items?: Array<{
+    title: string;
+    description: string;
+  }>;
+  images?: StoryImage[];
+};
+
+export type StoryImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption?: string;
+  href?: string;
 };
 
 export type Story = {
@@ -37,6 +51,7 @@ export type Story = {
   introduction: string;
   sections: StorySection[];
   links?: Link[];
+  heroImages?: StoryImage[];
 };
 
 export const profile = {
@@ -204,7 +219,6 @@ export const publications: Publication[] = [
     date: 'Jul 2026',
     type: 'Preprints and manuscripts',
     status: 'Unpublished manuscript · under review at EMNLP 2026',
-    venue: 'No public paper currently available',
     summary:
       'A benchmark for testing whether generative UI assistants preserve executable requirements, tool grounding, and text-interface alignment across successive revisions.',
     links: [],
@@ -219,33 +233,115 @@ export const stories: Story[] = [
     title: 'EaseCation',
     shortTitle: 'EaseCation',
     summary:
-      'Operations, web engineering, media, and community work for a long-running Minecraft network.',
+      'Internal systems, web engineering, and community traditions inside a long-running Minecraft network.',
     introduction:
-      'I joined EaseCation in 2018 and now lead internal operations and web engineering. My work covers releases, internal tooling, websites, and coordination across the network.',
+      'EaseCation is a Minecraft mini-game server founded in 2015. Across competitive, story-driven, and social games, it has grown into a long-running community with more than 70,000 daily active players.',
+    heroImages: [
+      {
+        src: '/media/stories/easecation/server-city.webp',
+        alt: 'A neon-lit Minecraft city built for EaseCation.',
+        width: 768,
+        height: 432,
+        href: 'https://www.easecation.net/',
+      },
+      {
+        src: '/media/stories/easecation/bed-wars.webp',
+        alt: 'Official artwork for EaseCation Bed Wars.',
+        width: 768,
+        height: 402,
+        href: 'https://www.easecation.net/',
+      },
+      {
+        src: '/media/stories/easecation/rune-legend.webp',
+        alt: 'Official artwork for EaseCation Rune Legend.',
+        width: 500,
+        height: 313,
+        href: 'https://www.easecation.net/',
+      },
+    ],
     sections: [
       {
-        title: 'Open-source infrastructure',
+        title: 'My role',
+        period: '2018–present',
         description:
-          'Public server software and tools are maintained by the EaseCation organization.',
-        links: [
+          'I joined EaseCation in 2018. Today I serve as a super administrator and lead internal operations and web engineering. My work spans internal systems, game-server development, release coordination, and the Aliyun operations behind the entire web engineering stack.',
+      },
+      {
+        title: 'Internal systems',
+        description:
+          'Most of the software I build here consists of internal OA applications shaped around EaseCation’s own operating processes. Because these tools handle private workflows and infrastructure, very little of this work is open source.',
+        items: [
           {
-            label: 'GitHub organization',
-            href: 'https://github.com/EaseCation',
+            title: 'Internal OA applications',
+            description:
+              'OA tools for recurring operational processes, reviews, handoffs, and cross-team coordination.',
+          },
+          {
+            title: 'Game-server development',
+            description:
+              'Development and maintenance work for EaseCation’s main Minecraft server and its surrounding services.',
+          },
+          {
+            title: 'Web engineering and cloud operations',
+            description:
+              'Public-facing and internal web platforms, together with deployment and Aliyun operations for the full web stack.',
           },
         ],
       },
       {
-        title: 'Community and production',
+        title: 'Open User Center',
         description:
-          'I have supported community events and contributed to Bilibili Games’ 2023 Minecraft Spring Festival program.',
+          'The main public exception is EaseCation Open User Center, our first formally released web-platform project. It opens the player and administrator frontends, shared packages, and a local mock backend for account binding, support tickets, reviews, and operational workflows under the AGPL-3.0 license.',
+        links: [
+          {
+            label: 'GitHub',
+            href: 'https://github.com/EaseCation/easecation-open-user-center',
+          },
+        ],
+        images: [
+          {
+            src: '/media/stories/easecation/open-user-center.webp',
+            alt: 'Screens from the EaseCation Open User Center for players and administrators.',
+            width: 1200,
+            height: 675,
+            caption: 'EaseCation Open User Center.',
+            href: 'https://github.com/EaseCation/easecation-open-user-center',
+          },
+        ],
       },
       {
-        title: 'Public record',
+        title: 'Potato Spring Gala',
+        period: '2022–present',
         description:
-          'The official site and community-maintained Wiki document the server’s games, history, and culture.',
+          'I am also deeply involved in EaseCation’s community traditions. The Potato Spring Gala is a player-driven New Year show built from songs, performances, machinima, and other community submissions. I directed the 2022, 2024, and 2025 editions; the 2025 production was our most accomplished yet and became a particularly memorable celebration of EaseCation’s tenth anniversary.',
+        links: [
+          {
+            label: 'Potato Spring Gala Wiki',
+            href: 'https://wiki.easecation.net/%E5%9C%9F%E8%B1%86%E6%98%A5%E6%99%9A',
+          },
+          {
+            label: '2025 tenth-anniversary show',
+            href: 'https://www.bilibili.com/video/BV17DFHeEEcQ/',
+          },
+        ],
+        images: [
+          {
+            src: '/media/stories/easecation/potato-gala-2025.jpg',
+            alt: 'Official cover for the 2025 EaseCation Potato Spring Gala.',
+            width: 1920,
+            height: 1080,
+            caption: '2025 tenth-anniversary Potato Spring Gala.',
+            href: 'https://www.bilibili.com/video/BV17DFHeEEcQ/',
+          },
+        ],
+      },
+      {
+        title: 'Learn more',
+        description:
+          'The official website introduces EaseCation’s games and services, while the community-maintained Wiki records its history, systems, events, and culture in much greater depth.',
         links: [
           { label: 'Official website', href: 'https://www.easecation.net/' },
-          { label: 'Wiki', href: 'https://wiki.easecation.net/' },
+          { label: 'EaseCation Wiki', href: 'https://wiki.easecation.net/' },
         ],
       },
     ],

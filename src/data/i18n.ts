@@ -15,7 +15,6 @@ export const ui = {
     switchLanguageShort: '中文',
     switchToLight: 'Switch to light mode',
     switchToDark: 'Switch to dark mode',
-    researchDescription: 'Publications and manuscripts.',
     publications: 'Publications',
     published: 'Published and accepted',
     preprints: 'Preprints and manuscripts',
@@ -45,7 +44,6 @@ export const ui = {
     switchLanguageShort: 'EN',
     switchToLight: '切换至浅色模式',
     switchToDark: '切换至深色模式',
-    researchDescription: '论文与手稿。',
     publications: '论文',
     published: '已发表与已接收',
     preprints: '预印本与手稿',
@@ -86,6 +84,9 @@ const linkLabels: Record<string, string> = {
   Scholar: 'Google Scholar',
   'GitHub organization': 'GitHub 组织',
   'Official website': '官方网站',
+  'EaseCation Wiki': 'EaseCation Wiki',
+  'Potato Spring Gala Wiki': '土豆春晚 Wiki',
+  '2025 tenth-anniversary show': '2025 十周年晚会回放',
   'Official result': '官方赛果',
   'Contemporary report': '当年报道',
   'Related research': '相关研究',
@@ -165,6 +166,10 @@ type StoryTranslation = {
     title: string;
     period?: string;
     description: string;
+    items?: Array<{
+      title: string;
+      description: string;
+    }>;
   }>;
 };
 
@@ -175,23 +180,53 @@ export const storyTranslations: Record<string, StoryTranslation> = {
     title: 'EaseCation',
     shortTitle: 'EaseCation',
     summary:
-      '围绕一个长期运行的 Minecraft 网络所做的运营、Web 工程、内容制作与社区工作。',
+      '一个长期运行的 Minecraft 网络中的内部系统、Web 工程与社区传统。',
     introduction:
-      '我于 2018 年加入 EaseCation，目前负责内部运营与 Web 工程。工作涵盖版本发布、内部工具、网站建设，以及网络内各团队的协作。',
+      'EaseCation 是一个创立于 2015 年的 Minecraft 小游戏服务器。从竞技、剧情到社交类玩法，它逐渐成长为一个长期运行的社区，日活跃玩家超过七万。',
     sections: [
       {
-        title: '开源基础设施',
-        description: 'EaseCation 组织持续维护并公开服务器软件与相关工具。',
+        title: '我的职责',
+        period: '2018–至今',
+        description:
+          '我于 2018 年加入 EaseCation。现在，我担任超级管理员，负责内部运营与 Web 工程。我的工作涵盖内部系统、游戏主服开发、版本发布协调，以及整个 Web 工程在阿里云上的运维。',
       },
       {
-        title: '社区与内容制作',
+        title: '内部系统',
         description:
-          '我参与过社区活动的组织，也参与制作了哔哩哔哩游戏 2023 年 Minecraft 新春节目。',
+          '我在 EaseCation 开发的软件大多是围绕内部实际流程设计的 OA 应用。因为它们涉及私有工作流与基础设施，所以绝大部分项目都不会开源。',
+        items: [
+          {
+            title: '内部 OA 应用',
+            description:
+              '用于日常运营、审核、交接与跨团队协作的 OA 工具。',
+          },
+          {
+            title: '游戏主服开发',
+            description:
+              '参与 EaseCation Minecraft 主服及其周边服务的开发与维护。',
+          },
+          {
+            title: 'Web 工程与云运维',
+            description:
+              '负责对外与内部 Web 平台，以及整套 Web 服务的部署和阿里云运维。',
+          },
+        ],
       },
       {
-        title: '公开记录',
+        title: '开源用户中心',
         description:
-          '官方网站与社区维护的 Wiki 记录了服务器的玩法、历史与文化。',
+          '最主要的公开例外是 EaseCation Open User Center，它是我们第一个正式公开的 Web 平台项目。仓库以 AGPL-3.0 许可证开放玩家端、管理端、共享包与本地 Mock 后端，覆盖账号绑定、工单、审核与运营流程。',
+      },
+      {
+        title: '土豆春晚',
+        period: '2022–至今',
+        description:
+          '除了技术与运营，我也非常在意 EaseCation 的社区传统。土豆春晚是一场由玩家共同创作的新年节目，涵盖歌曲、表演、Minecraft 剧情影片与各类社区投稿。我担任了 2022、2024 和 2025 三届晚会的导演；其中 2025 年的制作质量最高，也成为 EaseCation 十周年中格外精彩的一次庆祝。',
+      },
+      {
+        title: '了解更多',
+        description:
+          '官方网站介绍了 EaseCation 的游戏与服务；由社区共同维护的 Wiki 则更细致地记录了它的历史、系统、活动与文化。',
       },
     ],
   },
