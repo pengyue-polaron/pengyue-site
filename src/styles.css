@@ -181,10 +181,8 @@ dd {
 
 .identity-links a {
   display: inline-flex;
-  min-width: 122px;
   align-items: center;
-  justify-content: space-between;
-  gap: 22px;
+  gap: 8px;
   color: var(--accent);
   font-family: var(--font-serif);
   font-size: 17px;
@@ -213,6 +211,28 @@ dd {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: 28px;
+}
+
+.language-toggle {
+  padding: 3px 0;
+  border: 0;
+  color: var(--text-soft);
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.language-toggle:hover {
+  color: var(--accent);
 }
 
 .primary-nav {
@@ -255,7 +275,7 @@ dd {
   display: grid;
   width: 31px;
   height: 31px;
-  margin-left: 28px;
+  margin-left: 0;
   padding: 0;
   place-items: center;
   border: 1px solid transparent;
@@ -265,6 +285,32 @@ dd {
   cursor: pointer;
   font-size: 13px;
   letter-spacing: 0.04em;
+}
+
+:root[lang="zh-CN"] .home-copy p {
+  line-height: 2;
+}
+
+:root[lang="zh-CN"] .home-copy .home-intro {
+  letter-spacing: 0;
+}
+
+:root[lang="zh-CN"] .section-label,
+:root[lang="zh-CN"] .entry-meta,
+:root[lang="zh-CN"] .story-gallery-meta,
+:root[lang="zh-CN"] .story-kicker,
+:root[lang="zh-CN"] .placeholder-label {
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.motto-primary-chinese {
+  font-style: normal !important;
+  letter-spacing: 0.05em;
+}
+
+.motto-secondary-english {
+  letter-spacing: 0;
 }
 
 .theme-toggle:hover {
@@ -826,7 +872,8 @@ dd {
     font-size: 16px;
   }
 
-  .theme-toggle {
+  .topbar-actions {
+    gap: 12px;
     margin-left: 20px;
   }
 
@@ -896,7 +943,7 @@ dd {
     font-size: 14px;
   }
 
-  .theme-toggle {
+  .topbar-actions {
     margin-left: auto;
   }
 

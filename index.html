@@ -39,6 +39,12 @@
               : 'light';
         document.documentElement.dataset.theme = theme;
         document.documentElement.style.colorScheme = theme;
+
+        const language = navigator.language.toLowerCase().startsWith('zh')
+          ? 'zh'
+          : 'en';
+        document.documentElement.dataset.language = language;
+        document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
       })();
     </script>
     <title>Yue Peng</title>
