@@ -159,7 +159,7 @@ export const publications: Publication[] = [
       },
     ],
     equalContribution: ['Yushen Liang', 'Yue Peng', 'Baosheng Jin'],
-    image: '/media/publications/tfp-overview.png',
+    image: '/media/publications/tfp-overview.webp',
     imageAlt:
       'TFP overview showing why memory is needed, a liquid memory belief, benchmark gains, and real-world tasks.',
     imageWidth: 1200,
@@ -188,7 +188,7 @@ export const publications: Publication[] = [
       { label: 'Paper', href: 'https://arxiv.org/abs/2606.24472' },
       { label: 'Project', href: 'https://sites.google.com/view/g3vla' },
     ],
-    image: '/media/publications/g3vla-overview.png',
+    image: '/media/publications/g3vla-overview.webp',
     imageAlt:
       'G3VLA architecture showing camera-aware ray embeddings, cross-view fusion, and two-stage geometry distillation.',
     imageWidth: 955,
@@ -210,7 +210,7 @@ export const publications: Publication[] = [
       { label: 'Code', href: 'https://github.com/JimmmmmL/NovelAPIBench' },
     ],
     equalContribution: ['Yue Peng', 'Jinhan Niu'],
-    image: '/media/publications/novelapibench-overview.png',
+    image: '/media/publications/novelapibench-overview.webp',
     imageAlt:
       'NovelAPIBench pipeline from API discovery and knowledge extraction through task generation, filtering, and failure diagnosis.',
     imageWidth: 935,
@@ -330,7 +330,7 @@ export const stories: Story[] = [
         ],
         images: [
           {
-            src: '/media/stories/easecation/potato-gala-2025.jpg',
+            src: '/media/stories/easecation/potato-gala-2025.webp',
             alt: 'Official cover for the 2025 EaseCation Potato Spring Gala.',
             width: 1920,
             height: 1080,
