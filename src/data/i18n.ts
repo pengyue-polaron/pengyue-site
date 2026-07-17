@@ -90,7 +90,10 @@ const linkLabels: Record<string, string> = {
   'Robotics Club website': '机器人社官网',
   'NYU Shanghai DIC': '上海纽约大学 DIC',
   'Official result': '官方赛果',
-  'Contemporary report': '当年报道',
+  'Media feature': '媒体专访',
+  'Media report': '媒体报道',
+  'Project story': '项目介绍',
+  'Livestream article': '直播文章',
   'Related research': '相关研究',
   Paper: '论文',
   Project: '项目主页',
@@ -343,32 +346,33 @@ export const storyTranslations: Record<string, StoryTranslation> = {
       },
     ],
   },
-  'earlier-projects': {
+  'high-school-projects': {
     period: '2021–2023',
-    category: '校园系统与内容制作',
-    title: '早期项目',
-    shortTitle: '校园项目',
+    category: '高中技术项目',
+    title: '高中项目',
+    shortTitle: '高中项目',
     summary:
-      '围绕校园实际需求完成的图书推荐、购票软件与活动技术支持。',
-    introduction: '这些项目规模不大，但都面向校园里具体的人与具体的需求。',
+      '在广州二中围绕真实校园需求完成的软件与媒体系统。',
+    introduction:
+      '在广州市第二中学，我通过团委学生会信息科技部参与校园技术工作：从个性化图书推荐和活动购票，到一套面向校运会的低成本移动直播系统，这些项目都从校园里的具体需求出发。',
     sections: [
       {
-        title: '智能图书推荐与用户兴趣分析',
+        title: '智能图书推荐',
         period: '2023',
         description:
-          '我负责一个面向校园图书馆的因子分解机推荐项目，并设计其前端。项目获得“犀牛鸟”科研计划优秀奖。',
+          '我与张子睿共同开发了 Yuan Library，使用因子分解机分析读者兴趣并生成个性化书单。我负责项目管理与前端设计；项目通过 2023 年腾讯“犀牛鸟”中学科学人才培养计划完成，并获得优秀奖。',
       },
       {
         title: '校园购票系统',
-        period: '2022–2023',
+        period: '2022',
         description:
-          '我为校园音乐会购票系统完成前端实现与用户调研；该软件后来取得中国计算机软件著作权登记。',
+          '我为学生自主开发的活动购票系统完成前端实现与用户调研。系统将选座搬到线上，提供实时余座、订单记录与唯一校验码，减少线下售票形成的长队；该软件后来取得中国计算机软件著作权登记。',
       },
       {
-        title: '活动技术支持',
+        title: '移动式校运会直播',
         period: '2021–2023',
         description:
-          '我协调学生 IT 团队，为校园活动提供直播、技术保障与宣传支持。',
+          '我负责校运会的直播转播工作，并参与搭建了一套低成本、可随场地移动的制作与推流系统。它支持开幕式全程直播、部分赛事现场转播、回放，以及面向校内外观众的赛果与进程更新。',
       },
     ],
   },

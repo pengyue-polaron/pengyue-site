@@ -12,6 +12,7 @@ import {
 import {
   BrowserRouter,
   Link,
+  Navigate,
   NavLink,
   Route,
   Routes,
@@ -44,12 +45,18 @@ function useLanguage() {
   return useContext(LanguageContext);
 }
 
-function getInitialTheme(): Theme {
-  const applied = document.documentElement.dataset.theme;
-  if (applied === 'light' || applied === 'dark') return applied;
-  const stored = window.localStorage.getItem('theme');
+function getSystemTheme(): Theme {
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
+function getInitialThemeOverride(): Theme | null {
+  const requested = new URLSearchParams(window.location.search).get('theme');
+  if (requested === 'light' || requested === 'dark') return requested;
+  const stored = window.localStorage.getItem('themePreference');
   if (stored === 'light' || stored === 'dark') return stored;
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return null;
 }
 
 function getInitialLanguage(): Language {
@@ -636,13 +643,26 @@ function ScrollAndTitle() {
 }
 
 function AppShell() {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [themeOverride, setThemeOverride] = useState<Theme | null>(
+    getInitialThemeOverride,
+  );
+  const [systemTheme, setSystemTheme] = useState<Theme>(getSystemTheme);
   const [language, setLanguage] = useState<Language>(getInitialLanguage);
+  const theme = themeOverride ?? systemTheme;
+
+  useEffect(() => {
+    const preference = window.matchMedia('(prefers-color-scheme: dark)');
+    const syncSystemTheme = (event: MediaQueryListEvent) => {
+      setSystemTheme(event.matches ? 'dark' : 'light');
+    };
+
+    preference.addEventListener('change', syncSystemTheme);
+    return () => preference.removeEventListener('change', syncSystemTheme);
+  }, []);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     document.documentElement.style.colorScheme = theme;
-    window.localStorage.setItem('theme', theme);
 
     const themeColor = document.querySelector('meta[name="theme-color"]');
     themeColor?.setAttribute('content', theme === 'dark' ? '#171716' : '#f8f7f4');
@@ -676,9 +696,11 @@ function AppShell() {
         <div className="content-panel">
           <Header
             theme={theme}
-            onToggleTheme={() =>
-              setTheme((current) => (current === 'dark' ? 'light' : 'dark'))
-            }
+            onToggleTheme={() => {
+              const nextTheme = theme === 'dark' ? 'light' : 'dark';
+              window.localStorage.setItem('themePreference', nextTheme);
+              setThemeOverride(nextTheme);
+            }}
             onToggleLanguage={() =>
               setLanguage((current) => (current === 'en' ? 'zh' : 'en'))
             }
@@ -688,6 +710,10 @@ function AppShell() {
               <Route path="/" element={<HomePage />} />
               <Route path="/research" element={<ResearchPage />} />
               <Route path="/stories" element={<StoriesPage />} />
+              <Route
+                path="/stories/earlier-projects"
+                element={<Navigate replace to="/stories/high-school-projects" />}
+              />
               <Route path="/stories/:slug" element={<StoryPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

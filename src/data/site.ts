@@ -418,7 +418,11 @@ export const stories: Story[] = [
             href: 'https://frc-events.firstinspires.org/2019/AUSP',
           },
           {
-            label: 'Contemporary report',
+            label: 'Media feature',
+            href: 'https://news.ycwb.com/2019-04/02/content_30232008.htm',
+          },
+          {
+            label: 'Media report',
             href: 'https://ycpai.ycwb.com/ycppad/content/2019-04/03/content_367146.html',
           },
         ],
@@ -647,39 +651,93 @@ export const stories: Story[] = [
     ],
   },
   {
-    slug: 'earlier-projects',
+    slug: 'high-school-projects',
     period: '2021–2023',
-    category: 'School systems and production',
-    title: 'Earlier Projects',
-    shortTitle: 'School Projects',
+    category: 'School technology',
+    title: 'High School Projects',
+    shortTitle: 'High School Projects',
     summary:
-      'A book recommender, campus ticketing software, and live-event technology built around school needs.',
+      'Software and media systems built around everyday needs at Guangzhou No. 2 High School.',
     introduction:
-      'These projects were smaller in scope and built for specific users at school.',
+      'At Guangzhou No. 2 High School, I worked with the Student Union’s Information Technology Department on practical systems for school life—from personalized library recommendations and event ticketing to a low-cost mobile livestream setup for the annual sports meet.',
+    coverImage: {
+      src: '/media/stories/high-school-projects/library-recommendation.webp',
+      alt: 'The Yuan Library recommendation system displayed on a tablet and phone among books.',
+      altZh: '在书籍之间用平板电脑和手机展示 Yuan Library 图书推荐系统。',
+      width: 1302,
+      height: 1001,
+    },
+    heroImages: [
+      {
+        src: '/media/stories/high-school-projects/library-recommendation.webp',
+        alt: 'The Yuan Library recommendation system displayed on a tablet and phone among books.',
+        altZh: '在书籍之间用平板电脑和手机展示 Yuan Library 图书推荐系统。',
+        width: 1302,
+        height: 1001,
+        caption: 'Yuan Library on desktop and mobile.',
+        captionZh: 'Yuan Library 的桌面端与移动端界面。',
+      },
+    ],
     sections: [
       {
-        title: 'Intelligent Book Recommendation and User-Interest Analysis',
+        title: 'Intelligent book recommendation',
         period: '2023',
         description:
-          'I managed a factorization-machine recommendation project for school libraries and designed its front end. The work received an Excellent Award through the Rhino-Bird research program.',
+          'Together with Zirui Zhang, I developed Yuan Library, a system that used factorization machines to analyze reader interests and generate personalized book recommendations. I managed the project and designed its front end. Built through the 2023 Tencent Rhino-Bird Middle School Science Research Training Program, it received an Excellent Award.',
         links: [
           {
-            label: 'Archive',
+            label: 'GitHub',
             href: 'https://github.com/frc8811/Yuan-Library',
           },
         ],
       },
       {
         title: 'Campus Ticketing System',
-        period: '2022–2023',
+        period: '2022',
         description:
-          'I worked on front-end implementation and user research for a campus concert ticketing system. The software later received a Chinese software copyright registration.',
+          'I worked on front-end implementation and user research for a student-built event ticketing system. It moved seat selection online with real-time availability, order records, and unique verification codes, reducing the long queues that had formed around in-person ticket sales. The software later received a Chinese software copyright registration.',
+        links: [
+          {
+            label: 'Project story',
+            href: 'https://mp.weixin.qq.com/s/nbP3uxBOmxOUnBTe0e6gGA',
+          },
+        ],
+        images: [
+          {
+            src: '/media/stories/high-school-projects/campus-ticketing.webp',
+            alt: 'Official visual for the Guangzhou No. 2 High School campus ticketing system.',
+            altZh: '广州市第二中学校园购票系统的官方视觉图。',
+            width: 1280,
+            height: 544,
+            caption: 'The campus ticketing system announcement.',
+            captionZh: '校园购票系统上线视觉图。',
+            href: 'https://mp.weixin.qq.com/s/nbP3uxBOmxOUnBTe0e6gGA',
+          },
+        ],
       },
       {
-        title: 'Event technology',
+        title: 'Mobile sports-meet broadcasting',
         period: '2021–2023',
         description:
-          'I coordinated a student IT team supporting school events, livestreaming, technical support, and outreach.',
+          'I was responsible for livestream production at the school sports meet and helped build a low-cost, portable production and uplink system that could move with events around the stadium. It supported a full opening-ceremony broadcast, selected live competitions, replay, and timely result updates for viewers on and off campus.',
+        links: [
+          {
+            label: 'Livestream article',
+            href: 'https://mp.weixin.qq.com/s/2VL9oUFE5xBUlhH_fjH2RQ',
+          },
+        ],
+        images: [
+          {
+            src: '/media/stories/high-school-projects/sports-meet-livestream.webp',
+            alt: 'Poster for the 2022 Guangzhou No. 2 High School sports-meet livestream.',
+            altZh: '2022 年广州二中高中部校运会直播海报。',
+            width: 1080,
+            height: 608,
+            caption: 'The 2022 school sports-meet livestream.',
+            captionZh: '2022 年高中部校运会直播。',
+            href: 'https://mp.weixin.qq.com/s/2VL9oUFE5xBUlhH_fjH2RQ',
+          },
+        ],
       },
     ],
   },

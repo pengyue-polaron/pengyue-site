@@ -28,7 +28,8 @@
     <script>
       (() => {
         const requested = new URLSearchParams(window.location.search).get('theme');
-        const stored = localStorage.getItem('theme');
+        const stored = localStorage.getItem('themePreference');
+        localStorage.removeItem('theme');
         const theme =
           requested === 'light' || requested === 'dark'
             ? requested
