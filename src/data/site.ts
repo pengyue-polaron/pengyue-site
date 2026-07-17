@@ -74,6 +74,7 @@ export const externalLinks: Link[] = [
     href: 'https://scholar.google.com/citations?user=8_NoHUEAAAAJ&hl=en',
   },
   { label: 'GitHub', href: 'https://github.com/pengyue-polaron' },
+  { label: 'Hugging Face', href: 'https://huggingface.co/pengyue-polaron' },
 ];
 
 export const researchQuestions = [

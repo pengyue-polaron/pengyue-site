@@ -6,6 +6,7 @@ import {
   EnvelopeSimple,
   GithubLogo,
   GraduationCap,
+  LinkSimple,
   Moon,
   Sun,
 } from '@phosphor-icons/react';
@@ -72,7 +73,7 @@ function ContactIcon({ href }: { href: string }) {
   if (href.startsWith('mailto:')) return <EnvelopeSimple {...props} />;
   if (href.includes('scholar.google')) return <GraduationCap {...props} />;
   if (href.includes('github.com')) return <GithubLogo {...props} />;
-  return null;
+  return <LinkSimple {...props} />;
 }
 
 function ExternalLink({
