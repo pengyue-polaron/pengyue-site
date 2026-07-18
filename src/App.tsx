@@ -7,6 +7,7 @@ import {
   GithubLogo,
   GraduationCap,
   LinkSimple,
+  LinkedinLogo,
   Moon,
   Sun,
 } from '@phosphor-icons/react';
@@ -69,33 +70,43 @@ function getInitialLanguage(): Language {
 }
 
 function ContactIcon({ href }: { href: string }) {
-  const props = { 'aria-hidden': true, size: 16, weight: 'regular' as const };
+  const props = { 'aria-hidden': true, size: 20, weight: 'regular' as const };
   if (href.startsWith('mailto:')) return <EnvelopeSimple {...props} />;
   if (href.includes('scholar.google')) return <GraduationCap {...props} />;
   if (href.includes('github.com')) return <GithubLogo {...props} />;
+  if (href.includes('huggingface.co')) {
+    return <span aria-hidden="true" className="hugging-face-icon" />;
+  }
+  if (href.includes('linkedin.com')) return <LinkedinLogo {...props} />;
   return <LinkSimple {...props} />;
 }
 
 function ExternalLink({
   href,
   label,
-  showIcon = false,
+  iconOnly = false,
 }: {
   href: string;
   label: string;
-  showIcon?: boolean;
+  iconOnly?: boolean;
 }) {
   const isEmail = href.startsWith('mailto:');
   return (
     <a
       href={href}
+      className={iconOnly ? 'icon-only-link' : undefined}
+      aria-label={iconOnly ? label : undefined}
+      title={iconOnly ? label : undefined}
       {...(!isEmail && { target: '_blank', rel: 'noopener noreferrer' })}
     >
-      <span className="external-link-label">
-        {showIcon && <ContactIcon href={href} />}
-        <span>{label}</span>
-      </span>
-      {!showIcon && <ArrowUpRight aria-hidden="true" size={14} weight="regular" />}
+      {iconOnly ? (
+        <ContactIcon href={href} />
+      ) : (
+        <>
+          <span className="external-link-label">{label}</span>
+          <ArrowUpRight aria-hidden="true" size={14} weight="regular" />
+        </>
+      )}
     </a>
   );
 }
@@ -150,7 +161,7 @@ function IdentityPanel() {
             key={link.label}
             {...link}
             label={localizedLinkLabel(link, language)}
-            showIcon
+            iconOnly
           />
         ))}
       </nav>

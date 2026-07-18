@@ -173,20 +173,26 @@ dd {
 }
 
 .identity-links {
-  display: grid;
-  gap: 17px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   width: fit-content;
   margin-top: 77px;
 }
 
 .identity-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
   color: var(--accent);
-  font-family: var(--font-serif);
-  font-size: 17px;
   text-decoration: none;
+  transition:
+    border-color 140ms ease,
+    color 140ms ease,
+    transform 140ms ease;
 }
 
 .external-link-label {
@@ -196,7 +202,16 @@ dd {
 }
 
 .identity-links a:hover {
-  text-decoration: underline;
+  border-color: var(--line);
+  transform: translateY(-1px);
+}
+
+.hugging-face-icon {
+  width: 21px;
+  height: 21px;
+  background: currentColor;
+  -webkit-mask: url("/hugging-face.svg") center / contain no-repeat;
+  mask: url("/hugging-face.svg") center / contain no-repeat;
 }
 
 .content-panel {
@@ -987,14 +1002,8 @@ dd {
   }
 
   .identity-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px 22px;
+    gap: 7px;
     margin-top: 23px;
-  }
-
-  .identity-links a {
-    font-size: 16px;
   }
 
   .content-panel {

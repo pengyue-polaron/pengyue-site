@@ -75,6 +75,10 @@ export const externalLinks: Link[] = [
   },
   { label: 'GitHub', href: 'https://github.com/pengyue-polaron' },
   { label: 'Hugging Face', href: 'https://huggingface.co/pengyue-polaron' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/yue-peng-a16015305/',
+  },
 ];
 
 export const researchQuestions = [
