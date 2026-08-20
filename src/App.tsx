@@ -733,6 +733,9 @@ function AppShell() {
           <footer className="site-footer">
             <span>© 2026 {language === 'zh' ? '彭越' : 'Yue Peng'}</span>
             <span>{copy.lastUpdated}</span>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer">
+              粤ICP备2025402372号-1
+            </a>
           </footer>
         </div>
       </div>
